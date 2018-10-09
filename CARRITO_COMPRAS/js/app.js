@@ -12,8 +12,7 @@ function cargarEventListeners(){
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
     //Al cargar el documento, 
-
-    document.addEventListener("DOMContentLoaded", mostrarLocalStorage);
+    document.addEventListener("DOMContentLoaded", leerLocalStorage);
 }
 
 function vaciarCarrito(e){
@@ -28,9 +27,28 @@ function eliminarCurso(e){
         e.preventDefault();
         let curso;
         if(e.target.classList.contains('borrar-curso')){
-            console.log(e.target.parentElement.parentElement.remove());
+            e.target.parentElement.parentElement.remove();
+            curso = e.target.parentElement.parentElement;
+            cursoID = curso.querySelector('a').getAttribute('data-id');
+            eliminarCursoLocalStorage(cursoID);
         }
 }
+
+function eliminarCursoLocalStorage(curso) {
+    let cursosLS;
+    // Obtenemos el arreglo de cursos
+    cursosLS = obtenerCursosLocalStorage();
+    // Iteramos comparando el ID del curso borrado con los del LS
+    cursosLS.forEach(function(cursoLS, index) {
+        if(cursoLS.id === curso) {
+            cursosLS.splice(index, 1);
+        }
+    });
+    // Añadimos el arreglo actual a storage
+    localStorage.setItem('cursos', JSON.stringify(cursosLS) );
+}
+
+
 
 function comprarCurso(e){
     e.preventDefault();
@@ -79,32 +97,39 @@ function insertarCarritoLocalStorage(curso){
     localStorage.setItem("cursos", JSON.stringify(cursos));
 }
 
-function obtenerCursosLocalStorage(){
-    let cursos;
-    if(localStorage.getItem("cursos") === null){
-        cursos = [];
+function obtenerCursosLocalStorage() {
+    let cursosLS;
+
+    // comprobamos si hay algo en localStorage
+    if(localStorage.getItem('cursos') === null) {
+         cursosLS = [];
     } else {
-        cursos = JSON.parse(localStorage.getItem("cursos"));
+         cursosLS = JSON.parse( localStorage.getItem('cursos') );
     }
-    return cursos;
+    return cursosLS;
+
 }
 
-function mostrarLocalStorage(){
-    let cursos = obtenerCursosLocalStorage();
-    console.log("A la hora de imprimirlos.." + cursos);
 
-    for(var i = 0; i < cursos.lenght; i++){
+function leerLocalStorage() {
+    let cursosLS;
+
+    cursosLS = obtenerCursosLocalStorage();
+
+    cursosLS.forEach(function(curso){
+        // constrir el template
         const row = document.createElement('tr');
         row.innerHTML = `
-        <td> 
-        <img src="${curso[i].imagen}" width=100>
-        </td>
-        <td>${curso[i].titulo}</td>
-        <td>${curso[i].precio}</td>
-        <td>
-            <a href="#" class="borrar-curso" data-id="${curso[i].id}">X</a>
-        </td>
+             <td>  
+                  <img src="${curso.imagen}" width=100>
+             </td>
+             <td>${curso.titulo}</td>
+             <td>${curso.precio}</td>
+             <td>
+                  <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
+             </td>
         `;
-    }
+        listaCursos.appendChild(row);
 
+    });
 }
