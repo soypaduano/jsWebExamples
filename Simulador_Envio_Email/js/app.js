@@ -11,8 +11,6 @@ eventListener();
 
 function eventListener(){
     document.addEventListener('DOMContentLoaded', inicioApp);
-
-
     email.addEventListener('blur', validarCampo);
     asunto.addEventListener('blur', validarCampo);
     mensaje.addEventListener('blur', validarCampo);
