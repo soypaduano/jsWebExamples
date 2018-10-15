@@ -1,0 +1,6 @@
+Teoria: 
+
+Los prototypes: todos los objetos heredan sus funciones de un proto! Contiene todos los metodos que podemos usar en los objetos. 
+Nosotros tambien podemos añadir nuestros prototipes, para darselo a algún objeto. 
+
+Siempre queremos crear un proto para añadirselo a objetos, y no repetir código. 
