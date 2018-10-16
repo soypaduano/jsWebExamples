@@ -11,7 +11,6 @@ Seguro.prototype.cotizarSeguro = function(informacion){
     2 asitico = 1.05
     3 europeo = 1.35
     */
-
     const base = 2000;
     switch(this.marca){
         case '1':
@@ -114,7 +113,6 @@ formulario.addEventListener('submit', function(e){
 
 
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
-
 
     const interfaz = new Interfaz();
 
