@@ -42,6 +42,31 @@ class Interfaz {
         }, 3000);
     }
 
+    //Comprueba el presupuesto restante
+    presupuestoRestante(cantidad){
+        const restante = document.querySelector('span#restante');
+        const presupuestoRestanteUsuario = cantidadPresupuesto.presupuestoRestante(cantidad);
+        console.log("El presupuesto restante es ")
+        restante.innerHTML = `${presupuestoRestanteUsuario}`;
+        this.comprobarPresupuesto();
+    }
+
+    //Cambiar de color
+    comprobarPresupuesto(){
+        const presupuestoTotal = cantidadPresupuesto.presupuesto;
+        const presupuestoRestante = cantidadPresupuesto.restante;
+        //Comprobar el 25% del gasto
+        if((presupuestoTotal / 4) > presupuestoRestante){
+            const restante = document.querySelector('.restante');
+            restante.classList.remove('alert-success', 'alert-warning');
+            restante.classList.add('alert-danger');
+        } else if((presupuestoTotal / 2) > presupuestoRestante){
+            const restante = document.querySelector('.restante');
+            restante.classList.remove('alert-success');
+            restante.classList.add('alert-warning');
+        }
+    }
+
     //Inserta gastos a la lista
     agregarGasto(nombreGasto, cantidadGasto){
         const gastoListado = document.querySelector('#gastos ul');
@@ -75,5 +100,6 @@ formulario.addEventListener('submit', function(e){
     } else {
         ui.imprimirMensaje("Correcto", "correcto");
         ui.agregarGasto(nombreGasto, cantidadGasto);
+        ui.presupuestoRestante(cantidadGasto);
     }
 });
