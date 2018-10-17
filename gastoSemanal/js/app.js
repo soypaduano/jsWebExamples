@@ -11,7 +11,7 @@ class Presupuesto{
         this.presupuesto = Number(presupuesto_);
         this.restante = Number(presupuesto_)
     }
-
+ 
     presupuestoRestante(cantidad = 0){
         return this.restante -= Number(cantidad);
     }
