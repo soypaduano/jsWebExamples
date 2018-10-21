@@ -42,9 +42,37 @@ function doRequest(url){
                htmlNombres += `<li>${nombre.name}</li>`;
            });
 
-           htmlNombres += '</ul>';
+           htmlNombres += '</ul>'; 
            document.getElementById('resultado').innerHTML = htmlNombres;
         }
     }
     xhr.send();
 }
+
+
+//Ejemplo de PROMISES
+
+const esperando = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        resolve("Se ejecuto");
+    }, 5000);
+});
+
+esperando.then(function(mensaje){
+    console.log(mensaje);
+})
+
+const aplicarDescuento = new Promise(function(resolve, reject){
+    const descuento = false;
+    if(descuento){
+        resolve("Existe descuento");
+    } else {
+        reject("No se puede aplicar descuento")
+    }
+});
+
+aplicarDescuento.then(function(resultado){
+    console.log(resultado);
+}).catch(function(error){
+    console.log(error);
+});
