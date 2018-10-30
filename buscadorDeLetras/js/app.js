@@ -28,7 +28,7 @@ UI.formularioBuscar.addEventListener('submit', (e) => {
             
             if(data.respuesta.lyrics){
                 //La cancion existe
-                const letra = data.respuesta.lyrics;
+                const letra = data.respuesta.lyrics;s
                 UI.divResultado.textContent = letra;
 
             } else {
