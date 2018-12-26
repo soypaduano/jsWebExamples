@@ -1,5 +1,6 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    margin: 0%;
 
 }
 
@@ -13,11 +14,25 @@ h1 {
     font-size: 40px;
     line-height: 1.5em;
     letter-spacing: -.1px;
+    color: white;
+}
+
+
+
+h1 strong{
+    color: #026FFF;
 }
 
 .hero{
     height: 300px;
+    background-image: url(hero.jpg);
+    background-size: 500px 300px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-color: #1d252c;
 }
+
+
 
 .project-details {
     width: 500px;
@@ -25,4 +40,54 @@ h1 {
 
 .project-imageContainer{
     width: 500px;
+    display: inline-block;
 }
+
+.portfolio{
+    background:#FAFAFA;
+}
+
+.project{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+}
+
+.header{
+    background-color: #1d252c;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
+    
+}
+
+.header p{
+    color: white;
+    text-decoration: none;
+}
+
+
+.flexbox{
+    display: flex;
+    flex-direction:column;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+}
+
+
+
