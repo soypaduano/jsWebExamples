@@ -46,8 +46,15 @@ h1 strong{
     display: inline-block;
 }
 
+.project-title{
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
 .portfolio{
     background:#FAFAFA;
+    padding: 20px;
 }
 
 .project{
@@ -61,6 +68,21 @@ h1 strong{
     padding: 20px;
     background-color: white;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-course, .project-date, project-url{
+    margin: 10px 0;
+}
+
+.project-description{
+    font-size: 20px;
+}
+
+.project strong{
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal; 
 }
 
 .header{
@@ -80,6 +102,16 @@ ol, ul{
 
 figure{
     margin: 0;
+}
+
+h2 {
+    color: #026fff;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 40px;
+
 }
 
 
@@ -147,5 +179,108 @@ footer img{
 footer a{
     color: white;
 }
+
+
+.event{
+   margin: 10px;
+   width: 480px;
+   border-radius: 10px;
+   overflow: hidden;
+   flex-shrink: 0;
+   background: #f4fbff;
+}
+
+.event-list{
+    display: flex;
+}
+
+.event-list-title{
+    margin-left: 20px;
+}
+
+.event img{
+    width: 480px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-detail{
+    margin:20px 40px;
+    background-color: white;
+    margin-top: -40px;
+    position: relative;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.event-description{
+    text-align: left;
+}
+
+.event-url{
+    border: 1px solid #056fff;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #056fff;
+    border-radius: 5px;
+}
+
+.contact{
+    background-color: #056fff;
+    color:white;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.social {
+
+}
+
+.social-link{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.social-link.twitter{
+    background-image: url('twitterlogo.png');
+    background-size: 50px 50px;
+}
+
+.social-link.github{
+    background-image: url('github.png');
+    background-size: 50px 50px;
+}
+
+.form-email input{
+    border-color: gray;
+    padding: 5px 20px;
+    border-style: solid;
+    padding: 10px 20px 10px 25px;
+}
+
+.form-email button{
+    display: block;
+    margin-top: 10px;
+    background: transparent;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+    width: 100px;
+    margin: 10px;
+
+
+}
+
+.form-email h3{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
 
 
