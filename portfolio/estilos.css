@@ -310,6 +310,14 @@ footer a{
     flex-wrap: inherit;
 }
 
+.hero-title{
+    width: inherit;
+}
+
+.hero-title h1{
+    text-align: center;
+}
+
 
 
 
