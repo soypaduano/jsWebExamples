@@ -6,181 +6,251 @@
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <title>SP Coding Education</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/animatescroll.min.js"></script>
     <link rel="icon" type="image/png" href="">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
+    
 
 </head>
   <body>
     <header class="header">
 
-        <figure class="logo">
-          <img src="./index_files/logo.png" alt="Logo de http://leonidasesteban.com" height="50px">
-        </figure>
-        <nav class="menu">
-          <ol>
-            <li>
-              <a href="">Portafolio</a>
-            </li>
-            <li>
-              <a href="">Experiencia</a>
-            </li>
-            <li>
-              <a href="">Trabajemos juntos</a>
-            </li>
-          </ol>
-        </nav>
+      <div class="container">        
+          <figure class="logo">
+              <img src="logo_AprendeCodigo.png" alt="Logo de Aprende Codigo" height="50px">
+            </figure>
+            <nav class="menu">
+              <ol>
+                <li>
+                  <a onclick="$('#portafolio').animatescroll();">Portafolio</a>
+                </li>
+                <li>
+                  <a onclick="$('#eventos').animatescroll();">Lenguajes</a>
+                </li>
+                <li>
+                  <a onclick="$('#contacto').animatescroll();">Trabajemos juntos</a>
+                </li>
+              </ol>
+            </nav>
+      </div>
+
+
 
     </header>
     <section class="hero">
-      <h1>
-        Hola! Soy <strong>Sebastián Paduano</strong> <br> desarrollador  con <br> pasión por la <strong>enseñanza</strong>
-      </h1>
-      <img src="" width="500" height="300" alt="imagen principal del sitio"> 
-    </section>
-    <section id="portafolio" class="portfolio">
-      <h2>Portafolio (Proyectos Destacados)</h2>
-      <article class="project">
-        <div class="project-details">
-            <h3 class="project-title">Smartick Coding</h3>
-            <h6 class="project-course">Hecho en Javascript</h6>
-            <p class="project-date"><small><strong>Fecha:</strong> 01/07/2018</small></p>
-            <p class="project-url"><small><strong>Puedes verlo en:</strong> www.smartickmethod.com</small></p>
-            <p class="project-description">Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años. Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años.</p>    
-        </div>
 
-        <figure class="project-imageContainer">
-                <img width="500" src="unity-logo-news.jpg" alt="prouyecto del curso de React Native">
-        </figure>
-      
-      </article>
 
-      <article class="project">
-          <div class="project-details">
-              <h3 class="project-title">Smartick Coding</h3>
-              <h6 class="project-course">Hecho en Javascript</h6>
-              <p class="project-date"><small><strong>Fecha:</strong> 01/07/2018</small></p>
-              <p class="project-url"><small><strong>Pueds verlo en::</strong> www.smartickmethod.com</small></p>
-              <p class="project-description">Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años. Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años.</p>    
-          </div>
-  
-          <figure class="project-imageContainer">
-                  <img width="500" src="unity-logo-news.jpg" alt="prouyecto del curso de React Native">
-          </figure>
-        
-        </article>
+      <div class="container">
+          <h1>
+              ¡Hola! Somos <strong>Aprende Código</strong> <br> desarrolladores  con <br> pasión por la <strong>enseñanza.</strong>
+          </h1>
 
-        <article class="project">
-            <div class="project-details">
-                <h3 class="project-title">Smartick Coding</h3>
-                <h6 class="project-course">Hecho en Javascript</h6>
-                <p class="project-date"><small><strong>Fecha:</strong> 01/07/2018</small></p>
-                <p class="project-url"><small><strong>Pueds verlo en::</strong> www.smartickmethod.com</small></p>
-                <p class="project-description">Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años. Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años.</p>    
-            </div>
-    
-            <figure class="project-imageContainer">
-                    <img width="500" src="unity-logo-news.jpg" alt="prouyecto del curso de React Native">
-            </figure>
-          
-          </article>
+            <img class="hero-image" src="Me_Conference.jpg" width="400" height="300" alt="imagen principal del sitio" style="border: radius 15px;"> 
+      </div>
+          </section>
 
-          <article class="project">
+          <section id="portafolio" class="portfolio">
+            <div class="container">
+            <h2>Portafolio (Proyectos Destacados de alumnos y algunos profesores)</h2>
+            <article class="project">
               <div class="project-details">
                   <h3 class="project-title">Smartick Coding</h3>
-                  <h6 class="project-course">Hecho en Javascript</h6>
-                  <p class="project-date"><small><strong>Fecha:</strong> 01/07/2018</small></p>
-                  <p class="project-url"><small><strong>Pueds verlo en::</strong> www.smartickmethod.com</small></p>
+                  <h6 class="project-course">Hecho en Javascript, CSS y HTML</h6>
+                  <h6 class="project-course"> Desarrollado por Smartick Team </h6>
+                  <p class="project-date"><small><strong>Fecha:</strong> 01/05/2018</small></p>
+                  <p class="project-url"><small><strong>Puedes verlo en:</strong> <a href="www.smartickmethod.com"> www.smartickmethod.com </a> </small></p>
                   <p class="project-description">Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años. Smartick Coding es un proyecto que desarrollé junto a mis compañeros de Smartick en el que se enseña conceptos de programación básicos a niños de entre 4 y 12 años.</p>    
               </div>
       
               <figure class="project-imageContainer">
-                      <img width="500" src="unity-logo-news.jpg" alt="prouyecto del curso de React Native">
+                      <img width="500" src="smartick_coding.PNG" alt="prouyecto del curso de React Native">
               </figure>
             
             </article>
+      
+            <article class="project">
+                <div class="project-details">
+                    <h3 class="project-title">Cowboy Runner</h3>
+                    <h6 class="project-course"> Desarrollado por Yago, alumno de Aprende Código </h6>
+                    <h6 class="project-course">Hecho en Unity 3D</h6>
+                    <p class="project-date"><small><strong>Fecha:</strong> 03/03/2018</small></p>
+                    <p class="project-description">Cowboy Runner es un ejemplo que propone Unity 3D para empezar a desarrollar videojuegos. En una semana de desarrollo es posible realizar este minivideojuegos de plataformas basado en el antiguo Oeste americano.</p>    
+                </div>
+        
+                <figure class="project-imageContainer">
+                        <img width="500" src="cowboyrunner.PNG" alt="prouyecto del curso de React Native">
+                </figure>
+              
+              </article>
+      
+              <article class="project">
+                  <div class="project-details">
+                      <h3 class="project-title">Doodle Jump Remake</h3>
+                      <h6 class="project-course">Hecho en Unity 3D</h6>
+                      <h6 class="project-course"> Desarrollado por Adilet, alumno de Aprende Código </h6>
+                      <p class="project-date"><small><strong>Fecha:</strong> 09/10/2018</small></p>
+                      <p class="project-description">Pequeño remake de Doodle Jump, el famoso juego que arrasó al principio de que naciesen las stores. Jumper por excelencia, el juego trae pequeñas mecanicas que son interesantes de ver y suponen un buen punto de partida para el aprendizaje de físicas en Unity.</p>    
+                  </div>
+          
+                  <figure class="project-imageContainer">
+                          <img width="500" src="doodle.PNG" alt="prouyecto del curso de React Native">
+                  </figure>
+                
+                </article>
+      
+                <article class="project">
+                    <div class="project-details">
+                        <h3 class="project-title">Gun shooter</h3>
+                        <h6 class="project-course">Hecho en Unity 3D</h6>
+                        <h6 class="project-course"> Desarrollado por Yago, alumno de Aprende Código </h6>
+                        <p class="project-date"><small><strong>Fecha:</strong> 01/06/2018</small></p>
+                        <p class="project-description">Juego con diferentes mecánicas y retos que permiten a 2 jugadores jugar en el mismo ordenador. Shooter compartiendo pantalla.</p>    
+                    </div>
+            
+                    <figure class="project-imageContainer">
+                            <img width="500" src="gun_shooter.PNG" alt="prouyecto del curso de React Native">
+                    </figure>
+                  
+                  </article>
+
+                  <article class="project">
+                    <div class="project-details">
+                        <h3 class="project-title">Memory Game</h3>
+                        <h6 class="project-course">Hecho en Unity 3D</h6>
+                        <h6 class="project-course"> Desarrollado por Sebastián Paduano, contenido de enseñanza de clases.</h6>
+                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
+                        <p class="project-description">Pequeño juego de memoria que sirve muy bien para trabajar la programación de interfaces gráficas en Unity 3D.</p>    
+                    </div>
+            
+                    <figure class="project-imageContainer">
+                            <img width="500" src="memory_game.PNG" alt="prouyecto del curso de React Native">
+                    </figure>
+                  
+                  </article>
 
 
-    </section>
+                  <article class="project">
+                    <div class="project-details">
+                        <h3 class="project-title">Ghost Scape</h3>
+                        <h6 class="project-course">Hecho en Construct 2</h6>
+                        <h6 class="project-course"> Desarrollado por Miguel, alumno de Aprende Código.</h6>
+                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
+                        <p class="project-description">Juego hecho en Construct 2. El objetivo del juego es acabar con todos los fantasmas que van apareciendo en el juego. Es un juego bastante fácil de programar ya que está hecho mediante bloques de Construct2.</p>    
+                    </div>
+            
+                    <figure class="project-imageContainer">
+                            <img width="500" src="ghost.png" alt="prouyecto del curso de React Native">
+                    </figure>
+                  </article>
 
-    <h2 class="event-list-title">Más sobre mi experiencia</h2>
+
+                  <article class="project">
+                    <div class="project-details">
+                        <h3 class="project-title">Físicas 3D</h3>
+                        <h6 class="project-course">Hecho en Unity 3D</h6>
+                        <h6 class="project-course"> Desarrollado por Sebastián Paduano, contenido de enseñanza en clase.</h6>
+                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
+                        <p class="project-description">Ejemplos y actividades que te enseñarán a controlar las físicas en 3 dimensiones dentro de Unity 3D, al igual que trabajaremos con luces, relieve, planos y otras formas geométricas.</p>    
+                    </div>
+            
+                    <figure class="project-imageContainer">
+                            <img width="500" src="fisicas3d.PNG" alt="prouyecto del curso de React Native">
+                    </figure>
+                  </article>
+
+
+
+                  </div>
+          </section>
+
+
+
+      
+
+          <div class="container">
+              <h2 class="event-list-title">Lenguajes de programación que aprenderás:</h2>
+          </div>
+    
 
     <section id="eventos" class="event-list">
-      
-      <article class="event">
-        <figure class="event-imageContainer">
-          <img class="event-image" src="unity-logo-news.jpg" width="500">
-        </figure>
 
-        <div class="event-detail">
-            <h3 class="event-title">PlatziConf México 2018</h3>
-            <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. En esté evento te comparto como tener una vida de constante aprendizaje.</p>
-            <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
-        </div>
-      </article>
-
-
-      <article class="event">
-          <figure class="event-imageContainer">
-            <img class="event-image" src="unity-logo-news.jpg" width="500">
-          </figure>
-  
-          <div class="event-detail">
-              <h3 class="event-title">PlatziConf México 2018</h3>
-              <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. En esté evento te comparto como tener una vida de constante aprendizaje.</p>
-              <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
-          </div>
-        </article>
-
-        <article class="event">
-            <figure class="event-imageContainer">
-              <img class="event-image" src="unity-logo-news.jpg" width="500">
-            </figure>
-    
-            <div class="event-detail">
-                <h3 class="event-title">PlatziConf México 2018</h3>
-                <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. En esté evento te comparto como tener una vida de constante aprendizaje.</p>
-                <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
-            </div>
-          </article>
-
+      <div class="container">
           <article class="event">
               <figure class="event-imageContainer">
-                <img class="event-image" src="unity-logo-news.jpg" width="500">
+                <img class="event-image" src="javascript_logo.jpg" width="500">
               </figure>
       
               <div class="event-detail">
-                  <h3 class="event-title">PlatziConf México 2018</h3>
-                  <p class="event-description">El evento más grande sobre gente que quiere aprender más de internet. En esté evento te comparto como tener una vida de constante aprendizaje.</p>
-                  <a class="event-url" href="https://www.youtube.com/watch?v=BIS7cWGgJg0" target="_blank">Ver Plática</a>
+                  <h3 class="event-title">Javascript</h3>
+                  <p class="event-description">Aprenderás a realizar actividades complejas en una página web. Es uno de los lenguajes más usados actualmente.</p>
+                  <a class="event-url" href="https://www.javascript.com/" target="_blank">Ver Plática</a>
               </div>
             </article>
-
+      
+      
+            <article class="event">
+                <figure class="event-imageContainer">
+                  <img class="event-image" src="unity-logo-news.jpg" width="500">
+                </figure>
+        
+                <div class="event-detail">
+                    <h3 class="event-title">C# y Unity 3D</h3>
+                    <p class="event-description">El lenguaje perfecto para desarrollar videojuegos y aprender programación orientada a objetos.</p>
+                    <a class="event-url" href="https://unity3d.com/es" target="_blank">Ver Plática</a>
+                </div>
+              </article>
+      
+              <article class="event">
+                  <figure class="event-imageContainer">
+                    <img class="event-image" src="sratch_logo.png" width="500">
+                  </figure>
+          
+                  <div class="event-detail">
+                      <h3 class="event-title">Programación por bloques</h3>
+                      <p class="event-description">Perfecta para los más pequeños: iniciación a la programación y a los conceptos básicos. En <strong> Aprende Código </strong> trabajaremos con Scratch y Construct.</p>
+                      <a class="event-url" href="https://scratch.mit.edu/" target="_blank">Ver Plática</a>
+                  </div>
+                </article>
+      
+                <article class="event">
+                    <figure class="event-imageContainer">
+                      <img class="event-image" src="mobile_png.jpg" width="500">
+                    </figure>
+            
+                    <div class="event-detail">
+                        <h3 class="event-title">Java y Swift</h3>
+                        <p class="event-description">También podrás aprender Swift y Java: lenguajes que sirven para hacer aplicaciones móviles.</p>
+                        <a class="event-url" href="https://developer.android.com/?hl=es-419" target="_blank">Ver Plática</a>
+                    </div>
+                  </article>
+      
+      </div>
+      
+      
     </section>
     <section id="contacto" class="contact">
-      <form action="" class="form-email">
-        <h3>¿Creamos algo juntos?</h3>
-        <input type="text" placeholder="Déjame tu email" id="email">
-        <button>Enviar</button>
-      </form>
-
-<div class="social">
-  <a href="" class="social-link twitter"></a>
-  <a href="" class="social-link github"></a>
-</div>
-
+      <div class="container">
+          <form action="" class="form-email">
+              <h3> ¿Creamos algo juntos? <br> Consulta de precios y horarios: </h3>
+              <h2 style="color:white"> +34 654 49 14 39 </h2>
+              <h2 style="color:white; text-transform:lowercase "> sebastian.paduano.m@gmail.com </h2>
+            </form>
+      
+          <div class="social">
+            <a href="" class="social-link facebook"></a>
+            <a href="https://es.linkedin.com/in/sebastian-paduano-4810b1136" class="social-link linkedin"></a>
+          </div>
+      </div>
+    
     </section>
     <footer>
       <div>
-        <p> Curso de Desarrollo Web Online <img src="" width="100px" height="100px"> </p>
+        <p> Página web creada por Sebastián Paduano </p>
       </div>
-
-      <div>
-        Designed with Love <\3 by Uriel <a href="google.com"> Lozano </a>
-      </div>
-
-
     </footer>
   
-</body></html>
+</body>
+</html>
