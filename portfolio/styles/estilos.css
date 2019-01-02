@@ -259,17 +259,17 @@ footer a{
 }
 
 .social-link.twitter{
-    background-image: url('twitterlogo.png');
+    background-image: url('../images/twitterlogo.png');
     background-size: 50px 50px;
 }
 
 .social-link.linkedin{
-    background-image: url('linkedin.png');
+    background-image: url('../images/linkedin.png');
     background-size: 50px 50px;
 }
 
 .social-link.facebook{
-    background-image: url('facebook_png.png');
+    background-image: url('../images/facebook_png.png');
     background-size: 50px 50px;
 }
 
