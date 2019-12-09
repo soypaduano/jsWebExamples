@@ -1,0 +1,25 @@
+@media(max-width: 600px){
+  body{
+    background-color: red;
+  }
+
+  .products{
+    height: auto;
+    display: inherit;
+  }
+
+  .product{
+    margin-top: auto;
+  }
+
+
+  .main_section{
+    padding:4%;
+  }
+
+  .beneficios, .mentions{
+    display: inherit;
+  }
+
+
+}
