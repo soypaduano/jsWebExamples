@@ -1,0 +1,67 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+#containerArt{
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  outline: 8px solid rgb(0, 0, 0);
+  left: 10px;
+}
+
+#containerAuthor{
+  position: absolute;
+    width: 200px;
+    height: 720px;
+    outline: 8px  rgb(17, 212, 170);
+    outline-offset: 7px;
+    left: 801.3px;
+    background-color: bisque;
+    font-size: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+#containerCode{
+  position: absolute;
+  width: 100px;
+  height: 300px;
+  left: 1200px;
+}
+
+#containerYoutubeVideo{
+  position: absolute;
+  width: 100px;
+  height: 300px;
+  left: 1200px;
+}
+
+.generalContainer{
+  display: inline-block;
+}
+
+
+body{
+  background-color: chartreuse;
+}
+
+.menuSuperior{
+  height: 40px;
+  width: auto;
+  background-color: blueviolet;
+  position: relative;
+  font-size: 45px;
+  display: flex;
+}
+
+.elementoMenu{
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: blanchedalmond;
+}
