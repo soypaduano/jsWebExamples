@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Areas</title>
+</head>
+
+<style>
+    @font-face {
+            font-family: estaGuay;
+            src: url("cosinek.ttf");
+        }
+    body {
+        font-size: 25px;
+        font-family: estaGuay;
+    }
+
+    .container {
+        display: grid;
+        /*grid-template-columns: 25% 50% 10%;*/
+        /*grid-template-rows: 300px 100px;*/
+        grid-template: 100px 1fr 150px / 200px 1fr;
+        grid-gap: 10px;
+        height: 100vh;
+        grid-template-areas: "header header" "left contenido" "footer footer";
+    }
+
+    .item {
+        background: lightblue;
+        padding: 10px;
+        border: 1px solid red;
+    }
+
+
+    .item:nth-of-type(4) {
+        background: blanchedalmond;
+        overflow: auto;
+        display: grid;
+        grid-template: 50px 50px 50px/ 50px 50px 50px;
+    }
+
+    .item .item{
+        background-color: yellowgreen;
+    }
+
+    .header{
+        grid-area: header;
+    }
+
+    .contenido{
+        grid-area: contenido;
+    }
+
+    .left{
+        grid-area: left;
+    }
+
+    .footer{
+        grid-area: footer;
+    }
+</style>
+
+<body>
+
+    <section class="container">
+        <div class="item header">header</div>
+        <div class="item left">left</div>
+        <div class="item contenido">contenido</div>
+        <div class="item footer">footer</div>
+    </section>
+
+</body>
+
+</html>
