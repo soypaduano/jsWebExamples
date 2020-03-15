@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Areas</title>
+</head>
+
+<style>
+    @font-face {
+            font-family: estaGuay;
+            src: url("cosinek.ttf");
+        }
+    body {
+        font-size: 25px;
+        font-family: estaGuay;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: [inicio] 1fr [linea2] 1fr [linea3] 1fr [destacadoEnd] 1fr [linea5] 1fr [destacado2End] 1fr [linea7] 1fr [final];
+        grid-template-rows: [inicio] 200px [inicio2] 200px [final];
+        /*grid-gap: 10px;*/
+        height: 100vh;
+    }
+
+    .item {
+        background: lightblue;
+        padding: 10px;
+        border: 1px solid red;
+    }
+
+
+    .item:nth-of-type(1) {
+        grid-column: inicio / destacadoEnd;
+        grid-row: inicio / final;
+    }
+
+    .item:nth-of-type(2) {
+        grid-column: destacadoEnd / destacado2End;
+        grid-row: inicio / final;
+    }
+
+    .item:nth-of-type(3) {
+        grid-column: destacado2End / final;
+    }
+
+</style>
+
+<body>
+
+    <section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+    </section>
+
+</body>
+
+</html>
