@@ -196,7 +196,7 @@ footer .footer-right {
 .main-list ul {
     width: 100%;
     overflow-y: scroll;
-    height: 100px;
+    height: 150px;
     opacity: 0.9;
     scrollbar-width: none;
     display: flex;
