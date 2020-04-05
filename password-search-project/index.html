@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
     <script src="js/main.js"></script>
     </body>
 </head>
@@ -23,17 +23,16 @@
         <nav>
             <ul class="nav-right-section">
                 <li>
-                    <a href="">00:00</a>
-                </li>
-                <li>
-                    <span class="menu-icon glyphicon glyphicon-time"></span>
+                    <p>Introduce una contraseña válida siguiendo los requerimientos de abajo</a>
                 </li>
             </ul>
-        </nav>
+        </nav> 
     </header>
 
     <main>
-
+        <section class="main-clock">
+            <p id="timeText"> 00:00 </p>
+        </section>
         <section class="main-input">
             <div class="main-input-container">
                 <input id="textPassword" type="password" placeholder="Introduce una contraseña valida">
@@ -45,19 +44,7 @@
                 <ul id="error-list">
                     <li class="error">
                         <span></span>
-                        <p>La contraseña debe tener al menos 1 número</p>
-                    </li>
-                    <li class="correct">
-                        <span></span>
-                        <p>La contraseña debe tener al menos 1 número</p>
-                    </li>
-                    <li class="correct">
-                        <span></span>
-                        <p>La contraseña debe tener al menos 1 número</p>
-                    </li>
-                    <li class="correct">
-                        <span></span>
-                        <p>La contraseña debe tener al menos 1 número</p>
+                        <p class="errorText">La contraseña debe tener al menos 1 número</p>
                     </li>
                 </ul>
             </div>
