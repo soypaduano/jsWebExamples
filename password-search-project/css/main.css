@@ -88,6 +88,15 @@ main .main-input-container {
     align-items: center;
 }
 
+main .main-input-container.error {
+    border: 1px solid #d14242;
+}
+
+main .main-input-container.confirmPassword {
+    margin-top: 15px;
+    display: none;
+}
+
 main .main-input input {
     width: 450px;
     height: 40px;
@@ -199,6 +208,7 @@ footer .footer-right {
     height: 150px;
     opacity: 0.9;
     scrollbar-width: none;
+    scroll-behavior: unset;
     display: flex;
     /* move flex-items in column */
     flex-direction: column;

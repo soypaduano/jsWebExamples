@@ -1,9 +1,11 @@
-let timeStarted = false, sec = 0, password = "";
+let timeStarted = false, sec = 0, password = "", minutes = 0;
+let gamePassed = false;
 //f respects
 let puedePulsarF = false; fPulsado = false;
 
 $(document).ready(function () {
   seePasswordListener();
+  listenerToRegister();
   inputTextChanged();
   checkErrors();
 });
@@ -33,6 +35,7 @@ function inputTextChanged() {
   $('#textPassword').on('input', function (e) {
     if(!timeStarted) startTimer();
     password = $(this).val();
+    $('#registerButton').removeClass('animated wobble');
     checkErrors();
   });
 }
@@ -40,8 +43,8 @@ function inputTextChanged() {
 function checkErrors(){
 
   let allCorrects = true;
-  for(let i = 0; i < Object.entries(errorsToCheck).length; i++){
-    let element = Object.entries(errorsToCheck)[i];
+  for(let i = 0; i < Object.entries(errorsTest).length; i++){
+    let element = Object.entries(errorsTest)[i];
     let id = element[0];
     let func = element[1].function;
     let onTheList = element[1].onTheList;
@@ -62,7 +65,6 @@ function checkErrors(){
         addNewError(message, id);
         element[1].onTheList = true;
         setCorrect(id);
-        return;
       } else {
         addNewError(message, id);
         element[1].onTheList = true;
@@ -70,16 +72,23 @@ function checkErrors(){
       }
     }
   }
+
+  if(allCorrects) activateConfirmPassword();
 }
+
+function activateConfirmPassword(){
+  $('.main-input-container.confirmPassword').show();
+  $('.main-input-container.confirmPassword').addClass('animated bounceIn');
+};
 
 function startTimer(){
   timeStarted = true;
     setInterval( function(){
+      minutes = pad(parseInt(sec/60,10));
       $('#timeText').text(pad(++sec%60) + ":" + pad(parseInt(sec/60,10)))
     }, 1000);
 }
 
-function pad ( val ) { return val > 9 ? val : "0" + val; }
 function addOneToCounter(){
   ++totalSeconds;
 
@@ -97,6 +106,69 @@ function seePasswordListener() {
       $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open')
     }
   });
+
+  $('#seePasswordConfirm').on('click touch', function () {
+    let $textPassword = $('#textPasswordConfirm');
+
+    if ($($textPassword).attr("type") === "password") {
+      $($textPassword).attr("type", "text");
+      $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close')
+    } else {
+      $($textPassword).attr("type", "password");
+      $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open')
+    }
+  });
+}
+
+function listenerToRegister(){
+  $('#registerButton').on('click touch', function () {
+    let $this = this;
+    if(!gamePassed){
+      $(this).addClass('animated wobble');
+      $('.main-input-container').addClass('error');
+      setTimeout(function () { 
+          $($this).removeClass('animated wobble');
+          $('.main-input-container').removeClass('error');
+      }, 1000);
+    }
+  });
+}
+
+let errorsTest = {
+  "withOneNumber": {
+    "function": () => {
+      return /\d/.test(password);
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener un número.",
+    "correct": false
+  },
+  "twoCaps": {
+    "function": () => {
+      return countUpperCaseChars(password) >= 2
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener al menos 2 mayusculas",
+    "correct": false
+  },
+  "longerThan8": {
+    "function": () => {
+      return password.length > 8;
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener más de 8 caracteres",
+    "correct": false
+  },
+  "todayYear": {
+    "function": () => {
+      let today = new Date();
+      var yyyy = today.getFullYear();
+      return password.includes(yyyy);
+    }, 
+    "onTheList": false,
+    "message": "Debe contener el año en el que estamos",
+    "correct": false
+  }
 }
 
 let errorsToCheck = {
@@ -108,6 +180,32 @@ let errorsToCheck = {
     "message": "La contraseña debe tener un número.",
     "correct": false
   },
+  "twoCaps": {
+    "function": () => {
+      return countUpperCaseChars(password) >= 2
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener al menos 2 mayusculas",
+    "correct": false
+  },
+  "longerThan8": {
+    "function": () => {
+      return password.length > 8;
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener más de 8 caracteres",
+    "correct": false
+  },
+  "todayYear": {
+    "function": () => {
+      let today = new Date();
+      var yyyy = today.getFullYear();
+      return password.includes(yyyy);
+    }, 
+    "onTheList": false,
+    "message": "Debe contener el año en el que estamos",
+    "correct": false
+  },
   "FtoPayRespects": {
     "function": () => {
       puedePulsarF = true;
@@ -117,12 +215,37 @@ let errorsToCheck = {
     "message": "Pulsa F para dar respetos",
     "correct": false
   },
-  "longerThan8": {
+  "Zletter": {
     "function": () => {
-      return password.length > 8;
+      return password.includes('zz') || password.includes('ZZ') || password.includes('zZ') || password.includes('Zz');
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener más de 8 caracteres",
+    "message": "La contraseña debe contener la letra z dos veces seguida",
+    "correct": false
+  },
+  "squareRoot81": {
+    "function": () => {
+      return password.includes('9');
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe incluir la raíz cuadrada de 81",
+    "correct": false
+  },
+  "endsWithA": {
+    "function": () => {
+      return password[password.length - 1] === 'a';
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe acabar con la letra 'a'",
+    "correct": false
+  },
+  "currentMinute": {
+    "function": () => {
+      console.log(minutes);
+      return password.includes(minutes);
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener los minutos actuales del contador de arriba",
     "correct": false
   },
   "startWithCaps": {
@@ -135,18 +258,19 @@ let errorsToCheck = {
   },
   "withEmoji": {
     "function": () => {
+      return true;
       return isEmoji(password);
     }, 
     "onTheList": false,
     "message": "La contraseña debe tener un emoji",
     "correct": false
   },
-  "Zletter": {
+  "smallerThan13": {
     "function": () => {
-      return password.includes('z') || password.includes('Z');
+      return password.length < 14;
     }, 
     "onTheList": false,
-    "message": "La contraseña debe contener la letra Z",
+    "message": "La contraseña debe tener menos de 13 caracteres",
     "correct": false
   }
  
@@ -164,6 +288,16 @@ function isEmoji(str) {
   }
 }
 
+function countUpperCaseChars(str) {
+  var count=0,len=str.length;
+  for(var i=0;i<len;i++) {
+    if(/[A-Z]/.test(str.charAt(i))) count++;
+  }
+  return count;
+}
+
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+
 document.addEventListener('keyup', (e) => {
   if(puedePulsarF){
     if (e.code === "KeyF") {
@@ -172,3 +306,5 @@ document.addEventListener('keyup', (e) => {
   }
 }
 });
+
+//Emoji: 😅
