@@ -3,11 +3,20 @@ let gamePassed = false;
 //f respects
 let puedePulsarF = false; fPulsado = false;
 
+
+//TODO: Cada vez que hagamos algo bien, tenemos que ponerlo en la segunda posición
+
+
 $(document).ready(function () {
+  if (typeof window.orientation !== 'undefined') {
+    alert("Por una mejor experiencia de usuario, te recomendamos que juegues desde un navegador desktop");
+    $('footer').hide();
+  }
   seePasswordListener();
   listenerToRegister();
   inputTextChanged();
   checkErrors();
+  $('[data-toggle="tooltip"]').tooltip()
 });
 
 
@@ -19,7 +28,8 @@ function addNewError(errorMessage, id){
 function setCorrect(id){
   $('#' + id).removeClass('error animated bounceInUp');
   $('#' + id).addClass('correct');
-  $('#' + id).appendTo('#error-list');
+  let lastError = $('#error-list .error').slice(-1)[0];
+  $('#' + id).insertAfter(lastError);
 }
 
 function updateCorrectToErrorAgain(id){
@@ -48,12 +58,11 @@ function inputTextChanged() {
 function checkErrors(){
 
   let allCorrects = true;
-  for(let i = 0; i < Object.entries(errorsTest).length; i++){
-    let element = Object.entries(errorsTest)[i];
+  for(let i = 0; i < Object.entries(errorsToCheck).length; i++){
+    let element = Object.entries(errorsToCheck)[i];
     let id = element[0];
     let func = element[1].function;
     let onTheList = element[1].onTheList;
-    let correct = element[1].correct;
     let message = element[1].message;
 
     if(onTheList){
@@ -89,7 +98,7 @@ function activateConfirmPassword(){
   } else {
     $('.main-input-container.confirmPassword').show();
     $('.main-input-container.confirmPassword').addClass('animated bounceIn');
-    errorsTest["confirmPassword"] = {
+    errorsToCheck["confirmPassword"] = {
         "function": () => {
           return password === confirmPassword;
         }, 
@@ -107,7 +116,7 @@ function startTimer(){
     setInterval( function(){
       seconds = pad(++sec%60);
       minutes = pad(parseInt(sec/60,10));
-      $('#timeText').text(seconds + ":" + minutes);
+      $('#timeText').text(minutes + ":" + seconds);
     }, 1000);
 }
 
@@ -119,18 +128,6 @@ function addOneToCounter(){
 function seePasswordListener() {
   $('#seePassword').on('click touch', function () {
     let $textPassword = $('#textPassword');
-
-    if ($($textPassword).attr("type") === "password") {
-      $($textPassword).attr("type", "text");
-      $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close')
-    } else {
-      $($textPassword).attr("type", "password");
-      $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open')
-    }
-  });
-
-  $('#seePasswordConfirm').on('click touch', function () {
-    let $textPassword = $('#textPasswordConfirm');
 
     if ($($textPassword).attr("type") === "password") {
       $($textPassword).attr("type", "text");
@@ -163,45 +160,6 @@ function listenerToRegister(){
 }
 
 
-
-//Object errors
-let errorsTest = {
-  "withOneNumber": {
-    "function": () => {
-      return /\d/.test(password);
-    }, 
-    "onTheList": false,
-    "message": "La contraseña debe tener un número.",
-    "correct": false
-  },
-  "twoCaps": {
-    "function": () => {
-      return countUpperCaseChars(password) >= 2
-    }, 
-    "onTheList": false,
-    "message": "La contraseña debe contener al menos 2 mayusculas",
-    "correct": false
-  },
-  "longerThan8": {
-    "function": () => {
-      return password.length > 8;
-    }, 
-    "onTheList": false,
-    "message": "La contraseña debe tener más de 8 caracteres",
-    "correct": false
-  },
-  "todayYear": {
-    "function": () => {
-      let today = new Date();
-      var yyyy = today.getFullYear();
-      return password.includes(yyyy);
-    }, 
-    "onTheList": false,
-    "message": "Debe contener el año en el que estamos",
-    "correct": false
-  }
-}
-
 let errorsToCheck = {
   "withOneNumber": {
     "function": () => {
@@ -217,6 +175,14 @@ let errorsToCheck = {
     }, 
     "onTheList": false,
     "message": "La contraseña debe contener al menos 2 mayusculas",
+    "correct": false
+  },
+  "hasPercentage": {
+    "function": () => {
+      return password.includes('%');
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener el símbolo de %",
     "correct": false
   },
   "longerThan8": {
@@ -254,6 +220,14 @@ let errorsToCheck = {
     "message": "La contraseña debe contener la letra z dos veces seguida",
     "correct": false
   },
+  "endsWithB": {
+    "function": () => {
+      return password[password.length - 1] === 'b';
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe acabar con la letra 'b'",
+    "correct": false
+  },
   "squareRoot81": {
     "function": () => {
       return password.includes('9');
@@ -262,12 +236,12 @@ let errorsToCheck = {
     "message": "La contraseña debe incluir la raíz cuadrada de 81",
     "correct": false
   },
-  "endsWithA": {
+  "semiEndsWithExclamation": {
     "function": () => {
-      return password[password.length - 1] === 'a';
+      return password[password.length - 2] === '!';
     }, 
     "onTheList": false,
-    "message": "La contraseña debe acabar con la letra 'a'",
+    "message": "La contraseña debe tener un '!' en la penúltima posición",
     "correct": false
   },
   "currentMinute": {
@@ -287,24 +261,61 @@ let errorsToCheck = {
     "message": "La contraseña debe empezar por mayusculas",
     "correct": false
   },
-  "withEmoji": {
+  "noVocal": {
     "function": () => {
-      return true;
-      return isEmoji(password);
+      let passCopy = password.toUpperCase();
+      return !passCopy.includes('A') && !passCopy.includes('E') && !passCopy.includes('I') && !passCopy.includes('O') && !passCopy.includes('U')
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener un emoji",
+    "message": "La contraseña no puede tener vocales",
     "correct": false
   },
-  "smallerThan13": {
+  "smallerThan15": {
     "function": () => {
       return password.length < 14;
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener menos de 13 caracteres",
+    "message": "La contraseña debe tener menos de 15 caracteres",
     "correct": false
   }
- 
+}
+
+//Object errors for testing
+let errorsTest = {
+  "withOneNumber": {
+    "function": () => {
+      return /\d/.test(password);
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener un número.",
+    "correct": false
+  },
+  "twoCaps": {
+    "function": () => {
+      return countUpperCaseChars(password) >= 2
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener al menos 2 mayusculas",
+    "correct": false
+  },
+  "longerThan8": {
+    "function": () => {
+      return password.length > 8;
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe tener más de 8 caracteres",
+    "correct": false
+  },
+  "todayYear": {
+    "function": () => {
+      let today = new Date();
+      var yyyy = today.getFullYear();
+      return password.includes(yyyy);
+    }, 
+    "onTheList": false,
+    "message": "Debe contener el año en el que estamos",
+    "correct": false
+  }
 }
 
 
