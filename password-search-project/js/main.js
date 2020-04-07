@@ -118,7 +118,6 @@ function startTimer(){
 
 function addOneToCounter(){
   ++totalSeconds;
-
 }
 
 function seePasswordListener() {
@@ -283,24 +282,21 @@ let errorsTest = {
       return /\d/.test(password);
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener un número.",
-    "correct": false
+    "message": "La contraseña debe tener un número."
   },
   "twoCaps": {
     "function": () => {
       return countUpperCaseChars(password) >= 2
     }, 
     "onTheList": false,
-    "message": "La contraseña debe contener al menos 2 mayusculas",
-    "correct": false
+    "message": "La contraseña debe contener al menos 2 mayusculas"
   },
   "longerThan8": {
     "function": () => {
       return password.length > 8;
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener más de 8 caracteres",
-    "correct": false
+    "message": "La contraseña debe tener más de 8 caracteres"
   },
   "todayYear": {
     "function": () => {
@@ -309,8 +305,7 @@ let errorsTest = {
       return password.includes(yyyy);
     }, 
     "onTheList": false,
-    "message": "Debe contener el año en el que estamos",
-    "correct": false
+    "message": "Debe contener el año en el que estamos"
   }
 }
 
