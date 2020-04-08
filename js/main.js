@@ -24,14 +24,16 @@ function addNewError(errorMessage, id){
 
 function setCorrect(id){
   $('#' + id).removeClass('error animated bounceInUp');
-  $('#' + id).addClass('correct');
+  if(!$('#' + id).hasClass('fadeIn')){
+    $('#' + id).addClass('correct animated fadeIn');
+  } 
   let lastError = $('#error-list .error').slice(-1)[0];
   $('#' + id).insertAfter(lastError);
 }
 
 function updateCorrectToErrorAgain(id){
   if($('#' + id).hasClass('correct')){
-    $('#' + id).removeClass('correct');
+    $('#' + id).removeClass('correct animated fadeIn');
     $('#' + id).prependTo('#error-list');
     $('#' + id).addClass('error animated bounceInUp');
   }
@@ -188,6 +190,15 @@ let errorsToCheck = {
     "message": "La contraseña debe tener más de 8 caracteres",
     "correct": false
   },
+  "currentMinute": {
+    "function": () => {
+      console.log(minutes);
+      return password.includes(minutes);
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener los minutos actuales del contador de arriba",
+    "correct": false
+  },
   "todayYear": {
     "function": () => {
       let today = new Date();
@@ -207,20 +218,20 @@ let errorsToCheck = {
     "message": "Pulsa F para dar respetos",
     "correct": false
   },
-  "Zletter": {
-    "function": () => {
-      return password.includes('zz') || password.includes('ZZ') || password.includes('zZ') || password.includes('Zz');
-    }, 
-    "onTheList": false,
-    "message": "La contraseña debe contener la letra z dos veces seguida",
-    "correct": false
-  },
   "endsWithB": {
     "function": () => {
       return password[password.length - 1] === 'b';
     }, 
     "onTheList": false,
     "message": "La contraseña debe acabar con la letra 'b'",
+    "correct": false
+  },
+  "Zletter": {
+    "function": () => {
+      return password.includes('zz') || password.includes('ZZ') || password.includes('zZ') || password.includes('Zz');
+    }, 
+    "onTheList": false,
+    "message": "La contraseña debe contener la letra z dos veces seguida",
     "correct": false
   },
   "squareRoot81": {
@@ -237,15 +248,6 @@ let errorsToCheck = {
     }, 
     "onTheList": false,
     "message": "La contraseña debe tener un '!' en la penúltima posición",
-    "correct": false
-  },
-  "currentMinute": {
-    "function": () => {
-      console.log(minutes);
-      return password.includes(minutes);
-    }, 
-    "onTheList": false,
-    "message": "La contraseña debe contener los minutos actuales del contador de arriba",
     "correct": false
   },
   "startWithCaps": {

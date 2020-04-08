@@ -20,13 +20,13 @@ header nav {
 }
 
 header nav .nav-right-section {
-    width: 580px;
+    width: 700px;
     height: auto;
     display: flex;
     list-style: none;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    font-size: 20px;
     padding: 10px;
 }
 
