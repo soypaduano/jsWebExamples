@@ -1,8 +1,6 @@
 let timeStarted = false, sec = 0, password = "", confirmPassword = "", minutes = 0, seconds = 0;
 let gamePassed = false;
-
 let puedePulsarF = false; fPulsado = false; //f respects tool
-
 
 $(document).ready(function () {
   if (typeof window.orientation !== 'undefined') {
@@ -13,6 +11,8 @@ $(document).ready(function () {
   listenerToRegister();
   inputTextChanged();
   checkErrors();
+  $("#textPassword").focus();
+  $("#textPassword").select();
   $('[data-toggle="tooltip"]').tooltip()
 });
 
@@ -272,7 +272,7 @@ let errorsToCheck = {
       return password.length < 14;
     }, 
     "onTheList": false,
-    "message": "La contraseña debe tener menos de 15 caracteres",
+    "message": "La contraseña debe tener menos de 14 caracteres",
     "correct": false
   }
 }
