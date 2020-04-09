@@ -1,0 +1,56 @@
+
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<html>
+  <head>
+   <title>Test Sample Moving Page Title. </title>
+   <link rel="stylesheet" href="main.css">
+    <script type="text/javascript">
+      var msg  = document.title;
+      var speed = 200;
+      var endChar = "... ";
+      var pos = 0;
+      
+      function moveTitle()
+      {
+       	var ml = msg.length;
+      		
+      	title = msg.substr(pos,ml) + endChar + msg.substr(0,pos);
+    	document.title = title;
+      	
+        pos++;
+    	if (pos > ml) pos=0;
+        window.setTimeout("moveTitle()",speed);
+      }
+  
+      moveTitle();
+  </script>
+  </head>
+  <body>
+     See the moving page title browser title bar
+  </body>
+</html>
